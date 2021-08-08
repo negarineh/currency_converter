@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render <Input /> 1`] = `
+.c2 {
+  font-size: 0.9rem;
+  height: 3rem;
+  width: 20rem;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-bottom: 1rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  display: inline-block;
+}
+
+.c1 {
+  width: 14rem;
+  padding: 0.7em;
+  border: 1px solid #dbe2e8;
+  color: #2e3d49;
+  max-width: 50rem;
+  margin-right: 2.5rem;
+  outline: none;
+  height: 3rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  display: inline-block;
+  margin: 1rem;
+}
+
+@media only screen and (max-width:600px) {
+  .c2 {
+    width: 14rem;
+  }
+}
+
+<div
+  className="c0"
+>
+  <input
+    className="c1"
+    onChange={[MockFunction]}
+    type="number"
+    value={0}
+  />
+  <select
+    className="c2"
+    name="currencyList"
+    onChange={[MockFunction]}
+    value={0}
+  >
+    <option
+      value="AUD"
+    >
+      Australian Dollar
+    </option>
+    <option
+      value="CAD"
+    >
+      Canadian Dollar
+    </option>
+  </select>
+</div>
+`;

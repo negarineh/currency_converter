@@ -1,6 +1,6 @@
 import { applyMiddleware, compose, createStore } from "redux";
 import thunk from "redux-thunk";
-import rootReducer from "./reducers/currency";
+import rootReducer from "./reducers";
 
 const initialState = {
     currency: {
@@ -8,7 +8,7 @@ const initialState = {
         error: "",
         to: 0,
         from: 0,
-        convertFrom: "EUR",
+        convertFrom: "AUD",
         convertTo: "USD",
         isFetched: false
     }

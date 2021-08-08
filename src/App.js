@@ -1,10 +1,13 @@
+import { Provider } from "react-redux";
+import store from "./store";
+import Currency from "./components/Currency";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      Hello
-    </div>
+    <Provider store={store}>
+      <Currency />
+    </Provider>
   );
 }
 

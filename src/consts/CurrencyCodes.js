@@ -1,4 +1,4 @@
-export default {
+const CurrencyCodes = {
     "AUD": {
         "currencyName": "Australian Dollar",
         "currencySymbol": "$",
@@ -55,3 +55,5 @@ export default {
         "id": "USD"
     },
 };
+
+export default CurrencyCodes;
