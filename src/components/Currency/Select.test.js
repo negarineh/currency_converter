@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import 'jest-styled-components';
 
 import Select from './Select';
-import { currencyList } from './Input.spec';
+import { currencyList } from './Input.test';
 
 const value = 0;
 const onChange = jest.fn();
