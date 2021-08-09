@@ -97,16 +97,16 @@ export function rateCalculation(currencyRates, fromCurrency, toCurrency, refCurr
         :
         (pairExistance === undefined) ?
             /* inverted: when we have the reverse rate in table like for "USDAUD" we have "AUDUSD" */
-            ((currencyRates[`${toCurrency}${fromCurrency}`]) ?
+            (((currencyRates[`${toCurrency}${fromCurrency}`]) ?
                 rate = 1 / currencyRates[`${toCurrency}${fromCurrency}`].rate
                 :
                 /* CCY, cross via calculation */
-                (
+                ((
                     currencyPair = makeFromToList(currencyRates, fromCurrency, toCurrency),
                     rate = crossViaCalculation(currencyRates, currencyPair, refCurrency)
-                )
+                ))
                 ,
-                rate = { [`${fromCurrency}${toCurrency}`]: rate })
+                rate = { [`${fromCurrency}${toCurrency}`]: rate }))
             :
             /* Direct */
             rate = { [`${fromCurrency}${toCurrency}`]: (currencyRates[`${fromCurrency}${toCurrency}`]).rate };
