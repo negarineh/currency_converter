@@ -1,11 +1,33 @@
+interface RateCalculationTypes {
+    currencyRates: {
+        cuurency: {
+            from: string
+            to: string
+            rate: number
+        }
+    },
+    fromCurrency: string
+    toCurrency: string
+}
+
 /*  make a currency pair object
     {
         from: { from: "", to: "", rate: 0 },
         to: { from: "", to: "", rate: 0 }
     }
 */
-export function makeFromToList(currencyRates, fromCurrency, toCurrency) {
-    let currencyPair = {};
+export function makeFromToList(
+    currencyRates: {
+        currency: {
+            from: string
+            to: string
+            rate: number
+        }
+    },
+    fromCurrency: string,
+    toCurrency: string
+) {
+    let currencyPair: any = {};
 
     currencyPair.from = Object.values(currencyRates).filter(item =>
         (item.from === fromCurrency && (item.to === "USD" || item.to === "EUR")) ||
@@ -19,7 +41,22 @@ export function makeFromToList(currencyRates, fromCurrency, toCurrency) {
     return currencyPair;
 }
 
-export function crossViaCalculation(currencyRates, currencyPair, refCurrency) {
+export function crossViaCalculation(
+    currencyRates: any,
+    currencyPair: {
+        from: {
+            from: string
+            to: string
+            rate: number
+        }
+        to: {
+            from: string
+            to: string
+            rate: number
+        }
+    },
+    refCurrency: Array<string>
+) {
     const currencyPairFromRate = currencyPair.from.rate;
     const currencyPairToRate = currencyPair.to.rate;
     let conversionRate = 0;
@@ -77,7 +114,7 @@ export function crossViaCalculation(currencyRates, currencyPair, refCurrency) {
                                     * middleRefRate * (1 / currencyPairToRate)
                                     :
                                     (["USD"].includes(currencyPair.from.to) && ["EUR"].includes(currencyPair.to.to)) ?
-                                        conversionRate = currencyPairFromRate.rate
+                                        conversionRate = currencyPairFromRate
                                         * (1 / middleRefRate) * (1 / currencyPairToRate)
                                         :
                                         conversionRate = 0;
@@ -86,9 +123,31 @@ export function crossViaCalculation(currencyRates, currencyPair, refCurrency) {
     return conversionRate;
 }
 
-export function rateCalculation(currencyRates, fromCurrency, toCurrency, refCurrency) {
+export function rateCalculation(currencyRates: any, fromCurrency: any, toCurrency: any, refCurrency: any) {
     const pairExistance = Object.keys(currencyRates).find(key => key === `${fromCurrency}${toCurrency}`)
-    let rate, currencyPair = {};
+    let rate: any, currencyPair: {
+        from: {
+            from: string
+            to: string
+            rate: number
+        }
+        to: {
+            from: string
+            to: string
+            rate: number
+        }
+    } = {
+        from: {
+            from: '',
+            to: '',
+            rate: 0
+        },
+        to: {
+            from: '',
+            to: '',
+            rate: 0
+        }
+    };
 
     /* 1:1 */
     return (fromCurrency === toCurrency) ?

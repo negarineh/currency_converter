@@ -5,6 +5,7 @@ import {
 } from "./styles";
 
 import Select from "./Select";
+import InputTypes from './Input.types';
 
 function InputCurrency({
     currencyList,
@@ -13,7 +14,7 @@ function InputCurrency({
     inputChange,
     selectChange,
     inputRef,
-}) {
+}: InputTypes) {
     return (
         <CurrencyConverter>
             <Input

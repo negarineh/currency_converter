@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { Dispatch, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 
 import {
@@ -10,6 +10,7 @@ import {
 } from "./styles";
 
 import Input from './Input';
+import CurrencyTypes from "./index.types";
 
 import {
     getRate,
@@ -34,8 +35,8 @@ function Currency({
     toChangeInput,
     toCurrencyChange,
     getRate
-}) {
-    const inputRef = useRef(null);
+}: CurrencyTypes) {
+    const inputRef: any = useRef(null);
 
     useEffect(() => {
         inputRef?.current?.focus();
@@ -89,7 +90,7 @@ function Currency({
     );
 }
 
-const mapStateToProps = ({ currency }) => ({
+const mapStateToProps = ({ currency }: any) => ({
     currency: currency.data,
     error: currency.error,
     isFetched: currency.isFetched,
@@ -104,20 +105,20 @@ const mapStateToProps = ({ currency }) => ({
     getRate: currency.getRate
 });
 
-const mapDispatchToProps = dispatch => ({
-    getRate: (fromCurrency, toCurrency) => {
+const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
+    getRate: (fromCurrency: string, toCurrency: string) => {
         dispatch(getRate(fromCurrency, toCurrency));
     },
-    toChangeInput: value => {
+    toChangeInput: (value: string) => {
         dispatch(toChangeInput(value));
     },
-    fromChangeInput: value => {
+    fromChangeInput: (value: string) => {
         dispatch(fromChangeInput(value));
     },
-    fromCurrencyChange: payload => {
+    fromCurrencyChange: (payload: string) => {
         dispatch(fromCurrencyChange(payload));
     },
-    toCurrencyChange: payload => {
+    toCurrencyChange: (payload: string) => {
         dispatch(toCurrencyChange(payload));
     },
 });
