@@ -77,7 +77,7 @@ export function crossViaCalculation(currencyRates, currencyPair, refCurrency) {
                                     * middleRefRate * (1 / currencyPairToRate)
                                     :
                                     (["USD"].includes(currencyPair.from.to) && ["EUR"].includes(currencyPair.to.to)) ?
-                                        conversionRate = currencyPairFromRate.rate
+                                        conversionRate = currencyPairFromRate
                                         * (1 / middleRefRate) * (1 / currencyPairToRate)
                                         :
                                         conversionRate = 0;

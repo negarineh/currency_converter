@@ -25,17 +25,17 @@ export default function rootReducer(state, { type, payload }) {
             return {
                 ...state,
                 to: payload
-                    ? convert({ amount: payload.replace(/[^0-9]/g, ""), state, mode: "from" })
-                    : payload.replace(/[^0-9]/g, ""),
-                from: payload.replace(/[^0-9]/g, "")
+                    ? convert({ amount: payload, state, mode: "from" })
+                    : payload,
+                from: payload
             };
         case TO_CHANGE_INPUT:
             return {
                 ...state,
                 from: payload
-                    ? convert({ amount: payload.replace(/[^0-9]/g, ""), state, mode: "to" })
-                    : payload.replace(/[^0-9]/g, ""),
-                to: payload.replace(/[^0-9]/g, "")
+                    ? convert({ amount: payload, state, mode: "to" })
+                    : payload,
+                to: payload
             };
         case TO_CURRENCY_CHANGE:
             return {
