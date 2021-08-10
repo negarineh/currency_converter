@@ -1,15 +1,3 @@
-interface RateCalculationTypes {
-    currencyRates: {
-        cuurency: {
-            from: string
-            to: string
-            rate: number
-        }
-    },
-    fromCurrency: string
-    toCurrency: string
-}
-
 /*  make a currency pair object
     {
         from: { from: "", to: "", rate: 0 },

@@ -73,7 +73,7 @@ function Currency({
                         currencyList={currencyList}
                         inputValue={from}
                         selectValue={convertFrom}
-                        inputChange={e => fromChangeInput(e.target.value)}
+                        inputChange={e => fromChangeInput((e.target.value).replace(/[^0-9]/g, ""))}
                         selectChange={e => fromCurrencyChange(e.target.value)}
                         inputRef={inputRef}
                     />
@@ -81,7 +81,7 @@ function Currency({
                         currencyList={currencyList}
                         inputValue={to}
                         selectValue={convertTo}
-                        inputChange={e => toChangeInput(e.target.value)}
+                        inputChange={e => toChangeInput((e.target.value).replace(/[^0-9]/g, ""))}
                         selectChange={e => toCurrencyChange(e.target.value)}
                     />
                 </AppWrapper>
