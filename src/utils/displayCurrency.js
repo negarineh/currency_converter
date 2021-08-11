@@ -6,7 +6,6 @@ export function displayCurrency({
     number = 0
 }) {
     const displayedCurrency = currencyName({ currencyList, currencyId });
-    const formatting = new Intl.NumberFormat("de-DE").format(number);
 
-    return `${formatting} ${displayedCurrency}`;
+    return `${number} ${displayedCurrency}`;
 }

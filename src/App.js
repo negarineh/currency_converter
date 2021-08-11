@@ -6,9 +6,10 @@ import './App.css';
 
 function App() {
   return (
-
     <Provider store={store}>
-      <ErrorBoundary><Currency /></ErrorBoundary>
+      <ErrorBoundary>
+        <Currency />
+      </ErrorBoundary>
     </Provider>
   );
 }
